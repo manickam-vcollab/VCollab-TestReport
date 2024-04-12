@@ -103,7 +103,7 @@ const TestReportTable = () => {
   return(
     <>
        <h3 style={{textAlign:'center'}}>{tableTitle}</h3>
-       <Table columns={columns} dataSource={dataSource} />
+       <Table columns={columns} dataSource={dataSource} pagination={{ defaultPageSize: 10, showSizeChanger: true, pageSizeOptions: ['10', '20', '30']}}/>
     </>
 
   );
