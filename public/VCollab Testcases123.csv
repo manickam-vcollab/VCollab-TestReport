@@ -1,6 +1,6 @@
 ﻿Project ID,Module Name,Ref,Test Objectives,Pre-Condition,Project Id,Prepared By,Updated by ,Executed by,,
 VCollab ProX,ProX,Edit Menu,Functionality  Test,NA,ProX,Sravanthi ,NA,NA,,
-Test Case ID,Test Case Name/ Description,Steps/User Actions,Input Specification,Expected Result,Cycle 1 - Actual Result,Cycle 1 - Test Status,Cycle 1 - Bug ID,Cycle 2 - Actual Result,Cycle 2 - Test Status,Cycle 2 - Bug ID 
+Test Case ID,Test Case Name/ Description,Steps/User Actions,Input Specification,Expected Result,Cycle 1 - Actual Result,Cycle 1 - Test Status,Cycle 1 - Bug ID,Cycle 2 - Actual Result,Cycle 2 - Test Status,Cycle 2 - Bug ID, 
 VCT_File_1,Opening CAX File,Open Vcollab ProX . Load beam CAX file,beam.cax,CAX file should be opened,,,,,,
 VCT_File_2,Opening Linear Data,Open Vcollab ProX . Load any linear Data file,bracket.cax from Vcollab -Samples Folder,Bracket.cax should open in ProX,,,,,,
 VCT_File_3,Opening  Transient Data,Open Vcollab ProX Load any Transient Data,Airbag.cax from Vcollab -Samples Folder,Airbag.cax file should Open In ProX,,,,,,

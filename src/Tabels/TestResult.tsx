@@ -1,12 +1,14 @@
 import React ,{useEffect,useState}from "react";
 import Papa from 'papaparse';
 import { Table } from 'antd';
-import { Descriptions } from 'antd';
+import { Descriptions , Button} from 'antd';
 import type { DescriptionsProps } from 'antd';
+import { render } from "@testing-library/react";
 
 const csvFilePath:string = "VCollab Testcases123.csv"; 
 const urlParams = new URLSearchParams(window.location.search);
 const testCaseID = urlParams.get('id');
+const compareTableUrl:string = "/compare?id=";
 const tableTitle:string = 'VCollab Testcases';
 
 const TestResult = (props:any) => {
@@ -50,13 +52,15 @@ const TestResult = (props:any) => {
 
   const generateResultTable =(resultHeading:any,matchedData:any)=>{
     let resultData:any =[];
+    let lastColumn = resultHeading.length - 1;
     resultHeading.forEach((items:any ,index:number)=>{
-      resultData.push(
-        {
-          label: items,
-          children: matchedData[index],
-        },
-      )
+        resultData.push(
+          {
+            label: items,
+            children: lastColumn === index ? <Button type="primary"><a href={compareTableUrl+testCaseID}>Compare</a></Button>: matchedData[index]
+          },
+        )
+
     })
     setResultData(resultData);
   }
