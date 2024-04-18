@@ -7,7 +7,7 @@ const ImageCompare = (props:any) => {
   const { Meta } = Card;
   const urlParams = new URLSearchParams(window.location.search);
   const testCaseID = urlParams.get('id');
-  const actualResultImagePath = 'Actual_Result/'+ testCaseID +'.png';
+  const actualResultImagePath = 'Actual_Result/'+ testCaseID +'.PNG';
   const expectedResultImagePath = 'Expected_Result/'+ testCaseID +'.png';
 
   return (

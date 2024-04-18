@@ -2,7 +2,7 @@ import React ,{useEffect,useState} from 'react';
 import Papa from 'papaparse';
 import { Table } from 'antd';
 
-const csvFilePath:string = "TestingReport.csv"; 
+const csvFilePath:string = "TestReport.csv"; 
 const resultTableUrl:string = "/result?id=";
 let tableTitle:any ;
 
@@ -12,7 +12,7 @@ const TestReportTable = () => {
   const [columns,setColumns] = useState<any[]>();
 
   const generateTableData = (data:any,column:any)=>{
-    const tableData:any[]  = data.data.slice(1);
+    const tableData:any[]  = data.data.slice(3);
     tableTitle = data.data[0];
     const columnData:any[] = [];
     const rowData:any[] =[];
@@ -37,7 +37,7 @@ const TestReportTable = () => {
           // render(text:any) {
           //   return {
           //     props: {
-          //       style: { color: text === 'PASS' ? "green" : "red" }
+          //       style: { color: text === 'PASS' ? "green" : "red" ,fontWeight:500}
           //     },
           //     children: <div>{text}</div>
           //   };

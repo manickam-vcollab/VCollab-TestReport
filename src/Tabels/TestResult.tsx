@@ -5,7 +5,7 @@ import { Descriptions , Button} from 'antd';
 import type { DescriptionsProps } from 'antd';
 import { render } from "@testing-library/react";
 
-const csvFilePath:string = "VCollab Testcases123.csv"; 
+const csvFilePath:string = "Testcases.csv"; 
 const urlParams = new URLSearchParams(window.location.search);
 const testCaseID = urlParams.get('id');
 const compareTableUrl:string = "/compare?id=";
