@@ -1,0 +1,14 @@
+VCollabPro X,24.1,Build # 5.2.124.102 (64-bit),[2024-05-14 20:58:43] 
+SourceImagePath,image 
+OutputImagePath,OutputImage 
+TestcaseID,Description,Test Result,Folder,Images 
+VCT_File_1,Open CAX File,PASS
+VCT_File_11,Open Moving Mesh File,PASS
+VCT_File_17,SaveAs CAX,PASS
+VCT_File_21,Merge VPT File,PASS
+VCT_File_22,Merge Settings Uncheck Show Model Labels,PASS
+VCT_File_31,Merge Settings Custom Transform Relative Applying Translate Values,PASS
+VCT_File_35,Merge Settings Custom Transform Relative Applying Rotation Values,PASS
+VCT_File_39,Merge Settings Custom Transform Relative Applying Scale Values,PASS
+VCT_File_151,Import Result File,PASS
+VCT_File_153,Import Viewpoint File,PASS

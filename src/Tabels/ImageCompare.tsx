@@ -7,23 +7,26 @@ const ImageCompare = (props:any) => {
   const { Meta } = Card;
   const urlParams = new URLSearchParams(window.location.search);
   const testCaseID = urlParams.get('id');
-  const actualResultImagePath = 'Actual_Result/'+ testCaseID +'.PNG';
-  const expectedResultImagePath = 'Expected_Result/'+ testCaseID +'.png';
+  const actualResultImagePath = 'Actual_Result/'+ testCaseID +'.BMP';
+  const expectedResultImagePath = 'Expected_Result/'+ testCaseID +'.BMP';
+  const style: React.CSSProperties = {  padding: '8px 0' };
 
   return (
-    <div>
+    <div >
       <h1>Result compare</h1>
-      <Row>
-      <Col span={12}>
+    <Row gutter={12}>
+      <Col className="gutter-row" span={12}>
       <Card
+        style={style}
         cover={<img alt="example" src={actualResultImagePath} />}>
-        <Meta title="Actual Result" description="description" />
+        <Meta title="Input" description="description" />
       </Card>
       </Col>
-      <Col span={12}>
+      <Col className="gutter-row" span={12}>
       <Card
+        style={style}
         cover={<img alt="example" src={expectedResultImagePath} />}>
-        <Meta title="Expected Result" description="description" />
+        <Meta title="Output" description="description" />
       </Card>
       </Col>
     </Row>

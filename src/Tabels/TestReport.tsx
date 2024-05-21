@@ -1,8 +1,12 @@
 import React ,{useEffect,useState} from 'react';
 import Papa from 'papaparse';
 import { Table } from 'antd';
+import {
+CloseOutlined,CheckOutlined
+} from '@ant-design/icons';
+import { Space } from 'antd';
 
-const csvFilePath:string = "TestReport.csv"; 
+const csvFilePath:string = "Testing Report.csv"; 
 const resultTableUrl:string = "/result?id=";
 let tableTitle:any ;
 
@@ -12,7 +16,7 @@ const TestReportTable = () => {
   const [columns,setColumns] = useState<any[]>();
 
   const generateTableData = (data:any,column:any)=>{
-    const tableData:any[]  = data.data.slice(3);
+    const tableData:any[]  = data.data.slice(4);
     tableTitle = data.data[0];
     const columnData:any[] = [];
     const rowData:any[] =[];
@@ -34,14 +38,14 @@ const TestReportTable = () => {
             },
           ],
           onFilter: (value: string, record:any) => record.Test_Result.indexOf(value as string) === 0,
-          // render(text:any) {
-          //   return {
-          //     props: {
-          //       style: { color: text === 'PASS' ? "green" : "red" ,fontWeight:500}
-          //     },
-          //     children: <div>{text}</div>
-          //   };
-          // }
+          render(text:any) {
+            return {
+              props: {
+                style: { color: text === 'PASS' ? "green" : "red" ,fontWeight:500}
+              },
+              children: <div>{text}</div>
+            };
+          }
           
       })
       } else{
@@ -67,9 +71,11 @@ const TestReportTable = () => {
 
     setColumns(columnData);
     // generate data source (rows)
-    tableData?.forEach((row:any,rowIndex:number) => (
-      rowData.push(createDataSource(row,column,rowIndex))
-    ))
+    tableData?.forEach((row:any,rowIndex:number) => {
+      if(row.length >= 2){
+        rowData.push(createDataSource(row,column,rowIndex))
+      }
+    })
     setDataSource(rowData);
   }
 
