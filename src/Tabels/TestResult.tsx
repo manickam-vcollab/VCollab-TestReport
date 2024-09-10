@@ -1,15 +1,20 @@
 import React ,{useEffect,useState}from "react";
 import Papa from 'papaparse';
+import axios from 'axios';
 import { Table } from 'antd';
 import { Descriptions , Button} from 'antd';
 import type { DescriptionsProps } from 'antd';
-import { render } from "@testing-library/react";
 
-const csvFilePath:string = "VCollab_Testcases.csv"; 
+
 const urlParams = new URLSearchParams(window.location.search);
 const testCaseID = urlParams.get('id');
-const compareTableUrl:string = "/compare?id=";
+
 const tableTitle:string = 'VCollab Testcases';
+const baseUrl = "http://127.0.0.1:8000";
+const testReportID = urlParams.get('fileid');
+const url = `${baseUrl}/get-testCase-data/${testReportID}`;
+
+const compareTableUrl:string = `/image_compare?id=${testCaseID}&fileid=${testReportID}`;
 
 const TestResult = (props:any) => {
 
@@ -57,7 +62,8 @@ const TestResult = (props:any) => {
         resultData.push(
           {
             label: items,
-            children: lastColumn === index ? <Button type="primary"><a href={compareTableUrl+testCaseID}>Compare</a></Button>: matchedData[index]
+            //children: lastColumn === index ? <Button type="primary"><a href={compareTableUrl+testCaseID}>Compare</a></Button>: matchedData[index]
+            children: matchedData[index]
           },
         )
 
@@ -107,12 +113,28 @@ const TestResult = (props:any) => {
   }
 
   useEffect(() => {
-    Papa.parse(csvFilePath, {
-      download: true,
-      complete: function(results) {
-        generateTableData(results);
+
+    const fetchData = async () => {
+      try {
+
+        const response = await axios.get(url); // Replace with your API URL
+        if(response.status === 200) {
+              Papa.parse(url, {
+              download: true,
+              complete: function (results) {
+                generateTableData(results);
+              }
+            });
+        }
+        
+      } catch (err) {
+        console.log(err); // Set error if request fails
+      } finally {
+        
       }
-  });
+    };
+
+    fetchData();
   }, []);
   return (
     <div>
@@ -130,7 +152,7 @@ const TestResult = (props:any) => {
     items={resultData}
     size={'small'}
   />: <div><div style={{marginTop:'10px',marginBottom:'10px',fontWeight:500}}>{tableTitle}</div><Table columns={columns} dataSource={dataSource} /></div>}
-
+   {testCaseID !== null && testCaseID !== '' ? <div style={{display:'flex',justifyContent:'center',position:'relative',top:'10px',paddingBottom:'20px'}}><Button type="primary"><a href={compareTableUrl}>Image Compare</a></Button></div>:null}
     </div>
   )
 };

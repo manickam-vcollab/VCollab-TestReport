@@ -7,15 +7,17 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.94",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.23",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.16.0",
+    "axios": "^1.7.7",
     "d3": "^7.9.0",
+    "fs": "^0.0.1-security",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-papaparse": "^4.4.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
@@ -58,6 +60,7 @@
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",
+    "@types/node": "^22.5.4",
     "@types/papaparse": "^5.3.14"
   }
 }
