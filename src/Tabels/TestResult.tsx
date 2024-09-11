@@ -5,12 +5,14 @@ import { Table } from 'antd';
 import { Descriptions , Button} from 'antd';
 import type { DescriptionsProps } from 'antd';
 
+import {serverBaseURL} from '../Utils/config';
+
 
 const urlParams = new URLSearchParams(window.location.search);
 const testCaseID = urlParams.get('id');
 
 const tableTitle:string = 'VCollab Testcases';
-const baseUrl = "http://127.0.0.1:8000";
+const baseUrl = serverBaseURL;
 const testReportID = urlParams.get('fileid');
 const url = `${baseUrl}/get-testCase-data/${testReportID}`;
 

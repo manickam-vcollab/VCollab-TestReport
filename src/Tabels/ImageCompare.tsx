@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Col, Row } from 'antd';
 import { Card } from 'antd';
-import axios from 'axios';
+import {serverBaseURL} from '../Utils/config';
 
 const ImageCompare = (props:any) => {
 
@@ -9,15 +9,12 @@ const ImageCompare = (props:any) => {
   const urlParams = new URLSearchParams(window.location.search);
   const testCaseID = urlParams.get('id');
   const testReportID = urlParams.get('fileid');
-  const baseUrl = "http://127.0.0.1:8000";
-  const actualResultImagePath = `${baseUrl}/download-actual-image/${testReportID}/Actual_Result/${testCaseID}`;
-  const expectedResultImagePath = `${baseUrl}/download-actual-image/${testReportID}/Expected_Result/${testCaseID}`;
+  const baseURL = serverBaseURL;
+  const actualResultImagePath = `${baseURL}/download-actual-image/${testReportID}/Actual_Result/${testCaseID}`;
+  const expectedResultImagePath = `${baseURL}/download-expected-image/${testReportID}/Expected_Result/${testCaseID}`;
   const style: React.CSSProperties = {  padding: '8px 0'};
 
-  useEffect(()=> {
-    const response =  axios.get(actualResultImagePath);
-    console.log(response);
-  },[])
+
 
   return (
     <div >

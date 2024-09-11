@@ -8,6 +8,8 @@ import {
 } from '@ant-design/icons';
 import { Typography } from 'antd';
 
+import {serverBaseURL} from '../Utils/config';
+
 
 const { Title } = Typography;
 const resultTableUrl: string = "/result?id=";
@@ -15,7 +17,7 @@ let tableTitle: any;
 let tableColumn: any[] = [];
 let inputThreshold: any;
 const columnMaxLimit: number = 4;
-const baseUrl = "http://127.0.0.1:8000";
+const baseUrl = serverBaseURL;
 
 
 const TestReportTable = () => {
@@ -384,8 +386,7 @@ const TestReportTable = () => {
 
     const fetchData = async () => {
       try {
-
-        const response = await axios.get(url); // Replace with your API URL
+        const response = await axios.get(url); 
         if(response.status === 200) {
               Papa.parse(url, {
               download: true,
