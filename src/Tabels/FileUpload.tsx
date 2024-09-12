@@ -105,12 +105,12 @@ function Dropzone() {
 
   return (
 
-    <div id='fileupload_outerContainer' style={{ display: 'flex',justifyContent: 'center', height: '97vh', fontFamily:'roboto'}} >
+    <div id='fileupload_outerContainer' style={{ display: 'flex',justifyContent: 'center', height: '97vh'}} >
       <div id='innerContainer' style={{ width: '35%', height: '80%', padding: '12px', borderRadius: '15px'}}>
         <Card style={{boxShadow:'-1px 2px 8px 8px rgba(0,0,0,0.2)'}} title={<div>File Upload</div>} extra={<div style={{marginTop:'7px'}}><img src="LogoBig.svg" width='80px' height='30px'/></div>}>
           <div id='version' className={cssObjects.label}>
             <span>Version</span>
-            <Input style={{ position: 'relative', top: '5px' }} onChange={(e) => setVersion(e.target.value)} />
+            <Input style={{ position: 'relative', top: '5px' }}  onChange={(e) => setVersion(e.target.value)} />
           </div>
           <br></br>
           <div id='drag_drop_test_result' style={{cursor:'pointer'}}>
@@ -127,7 +127,7 @@ function Dropzone() {
                 <p>Drop the files here...</p>
               ) : (
                 <span>
-                  {testResultFile ? <p className={cssObjects.placeHolder}>{testResultFile.length > 0 ? 'File uploaded sucessfully' : 'Drag & Drop csv files here, or click to select files '}</p> :<p className={cssObjects.placeHolder}>Drag & Drop csv files here, or click to select files</p> }
+                  {testResultFile ? <p className={cssObjects.placeHolder}>{testResultFile.length > 0 ? 'File uploaded sucessfully' : 'Drag & Drop files here, or click to select files '}</p> :<p className={cssObjects.placeHolder}>Drag & Drop files here, or click to select files</p> }
                 </span>
               )}
             </div>
@@ -171,11 +171,12 @@ function Dropzone() {
             <br></br>
             <span>Description</span>
             <TextArea
-              style={{ height: '80%', position: 'relative', top: '5px', resize: 'none' }}
+              style={{ height: '80%', position: 'relative', top: '5px'}}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div id="user_action" style={{ position: 'relative', top: '15px', textAlign: 'right' }}>
+          <div id="user_action" style={{ position: 'relative', top: '15px', textAlign: 'right'}}>
+            <Button type="primary" onClick={onHandleUpload}>Click to Dashboard</Button>
             <Button type="primary" onClick={onHandleUpload}>Upload</Button>
           </div>
         </Card>
